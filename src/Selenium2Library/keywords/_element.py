@@ -336,6 +336,12 @@ class _ElementKeywords(KeywordGroup):
         element = self._element_find(locator, True, True)
         ActionChains(self._current_browser()).context_click(element).perform()
 
+    def drag_and_drop(self, source, target):
+        """Simulates drag-and-drop from source to target."""
+        element = self._element_find(source,True,True)
+        target =  self._element_find(target,True,True)
+        ActionChains(self._current_browser()).drag_and_drop(element, target).perform()
+
     def simulate(self, locator, event):
         """Simulates `event` on element identified by `locator`.
 
